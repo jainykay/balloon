@@ -39,12 +39,11 @@ function draw() {
   else if(keyDown(UP_ARROW)){
     updateHeight(0, -10);
     balloon.addAnimation("hotAirBalloon",balloonImage2);
-    balloon.scale = ballon.scale -0.01
+    balloon.scale = balloon.scale -0.01
   }
   else if(keyDown(DOWN_ARROW)){
     updateHeight(0, +10);
     balloon.addAnimation("hotAirBalloon",balloonImage2);
-    balloon.scale = ballon.scale +0.01
   }
 
   drawSprites();
@@ -54,8 +53,8 @@ function draw() {
   text("**Use arrow keys to move Hot Air Balloon!",40,40);
 }
 
-function updateHeight() {
-  database.ref('ballon/height').set({
+function updateHeight(x, y) {
+  database.ref('balloon/height').set({
     'x' : height.x + x ,
     'y' : height.y + y
   })
